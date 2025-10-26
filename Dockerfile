@@ -5,7 +5,7 @@ FROM openjdk:11
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Set working directory inside container
-WORKDIR /CoreNLP
+WORKDIR /CoreNLPDOCKER
 
 # Install git, maven, curl
 RUN apt update && apt install -y git maven curl
