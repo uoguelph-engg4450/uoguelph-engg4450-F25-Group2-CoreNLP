@@ -58,6 +58,7 @@ public class QuantifiableEntityNormalizer  {
   private static final Set<String> quantifiable;  //Entity types that are quantifiable
   private static final Set<String> collapseBeforeParsing;
   private static final Set<String> timeUnitWords;
+  private static final Set<String> connectiveWords;
   private static final Map<String, Double> moneyMultipliers;
   private static final Map<String, Integer> moneyMultipliers2;
   private static final Map<String, Character> currencyWords;
@@ -95,6 +96,12 @@ public class QuantifiableEntityNormalizer  {
     timeUnitWords.add("months");
     timeUnitWords.add("year");
     timeUnitWords.add("years");
+
+    connectiveWords = Generics.newHashSet();
+    connectiveWords.add("to");
+    connectiveWords.add("through");
+    connectiveWords.add("between");
+    connectiveWords.add("across");
 
     currencyWords = Generics.newHashMap();
     currencyWords.put("dollars?", '$');
@@ -1354,8 +1361,8 @@ public class QuantifiableEntityNormalizer  {
       // Split up consecutive dates
       if ("DATE".equals(prevNerTag) && wi != null) {
         String currWord = wi.get(CoreAnnotations.TextAnnotation.class);
-        // if previous was DATE, current token is "to", and next token is also a DATE, break the collector
-        if (("to".equalsIgnoreCase(currWord) || ("through".equalsIgnoreCase(currWord)) || ("between".equalsIgnoreCase(currWord)))
+        // if previous was DATE, current token is a 'connectiveWord', and next token is also a DATE, break the collector
+        if (connectiveWords.contains(currWord.toLowerCase())
             && (i + 1 < sz)
             && "DATE".equals(list.get(i + 1).get(CoreAnnotations.NamedEntityTagAnnotation.class))) {
 
