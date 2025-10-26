@@ -1350,6 +1350,27 @@ public class QuantifiableEntityNormalizer  {
       }
 
       E wprev = (i > 0)? list.get(i-1):null;
+
+      // Split up consecutive dates
+      if ("DATE".equals(prevNerTag) && wi != null) {
+        String currWord = wi.get(CoreAnnotations.TextAnnotation.class);
+        // if previous was DATE, current token is "to", and next token is also a DATE, break the collector
+        if (("to".equalsIgnoreCase(currWord) || ("through".equalsIgnoreCase(currWord)) || ("between".equalsIgnoreCase(currWord)))
+            && (i + 1 < sz)
+            && "DATE".equals(list.get(i + 1).get(CoreAnnotations.NamedEntityTagAnnotation.class))) {
+
+          // Flush and process the previous DATE segment before we hit the connective word
+          processEntity(collector, prevNerTag, null, currWord);
+          collector.clear();
+
+          // Reset so the upcoming DATE starts fresh
+          prevNerTag = BACKGROUND_SYMBOL;
+
+          // also re-label the connective word token as neutral
+          wi.set(CoreAnnotations.NamedEntityTagAnnotation.class, "O");
+        }
+      }
+
       // if the current wi is a non-continuation and the last one was a
       // quantity, we close and process the last segment.
       if ((currNerTag == null || ! currNerTag.equals(prevNerTag) || !isCompatible(prevNerTag, wprev, wi)) && quantifiable.contains(prevNerTag)) {
