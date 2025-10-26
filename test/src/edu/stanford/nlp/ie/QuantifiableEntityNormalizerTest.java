@@ -6,7 +6,10 @@ import junit.framework.TestCase;
  * Notes: This tests the old code that is independent of SUTime!
  * The test that checks the integration of SUTime with QEN is NumberSequenceClassifierITest.
  *
+ * Additional test cases added for bug fix of dbl date inputs
+ *
  * @author Christopher Manning
+ * @author Mark de Lima
  */
 public class QuantifiableEntityNormalizerTest extends TestCase {
 
@@ -29,6 +32,24 @@ public class QuantifiableEntityNormalizerTest extends TestCase {
                                    "20090719",
                                    "20070616"
   };
+
+    private String[] dblDateStrings = { "On May 1st through May 3rd I want to go to the park.",
+                                        "The Truck passed the date July 11th, 2025 on it's way to Oct. 1, '25",
+            "The conference will begin on March 12, 2025, and conclude on March 15, 2025",
+            "She started her internship on June 1, 2023, and received a full-time offer on December 20, 2023.",
+            "Our renovation project kicked off on January 10, 2024, and was finally completed by April 5, 2024.",
+            "The exhibit opened to the public on September 8, 2022, and closed on October 30, 2022.",
+            "He was born on May 4, 1990, and graduated from university on June 15, 2012.",
+    };
+
+    private String[] dblDateAnswers = { "****0501",
+            "20250711",
+            "20250312",
+            "20230601/20231220",
+            "20240110",
+            "20220908",
+            "19900504"
+    };
 
   private String[] percentStrings = { "one percent",
                                       "% 8",
@@ -152,6 +173,13 @@ public class QuantifiableEntityNormalizerTest extends TestCase {
 	assertEquals("Testing " + dateStrings[i], dateAnswers[i], QuantifiableEntityNormalizer.normalizedDateString(dateStrings[i], null));
     }
   }
+
+    public void testDblDateNormalization() {
+        assertEquals(dblDateStrings.length, dblDateAnswers.length);
+        for (int i = 0; i < dblDateAnswers.length; i++) {
+            assertEquals("Testing " + dblDateStrings[i], dblDateAnswers[i], QuantifiableEntityNormalizer.normalizedDateString(dblDateStrings[i], null));
+        }
+    }
 
   public void testPercentNormalization() {
     assertEquals(percentStrings.length, percentAnswers.length);
