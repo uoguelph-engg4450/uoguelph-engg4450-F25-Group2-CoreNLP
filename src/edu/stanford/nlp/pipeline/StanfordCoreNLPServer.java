@@ -1789,6 +1789,8 @@ public class StanfordCoreNLPServer implements Runnable {
       withAuth(server.createContext(uriContext+"/corenlp-parseviewer.js", new FileHandler("edu/stanford/nlp/pipeline/demo/corenlp-parseviewer.js", "application/javascript")), basicAuth);
 
       withAuth(server.createContext(uriContext+"/style-vis.css", new FileHandler("edu/stanford/nlp/pipeline/demo/style-vis.css", "text/css")), basicAuth);
+      withAuth(server.createContext(uriContext+"/dark-mode.css", new FileHandler("edu/stanford/nlp/pipeline/demo/dark-mode.css", "text/css")), basicAuth);
+      withAuth(server.createContext(uriContext+"/theme-manager.js", new FileHandler("edu/stanford/nlp/pipeline/demo/theme-manager.js", "application/javascript")), basicAuth);
 
       withAuth(server.createContext(uriContext+"/static/fonts/Astloch-Bold.ttf", new BytesFileHandler("edu/stanford/nlp/pipeline/demo/Astloch-Bold.ttf", "font/ttfx")), basicAuth);
       withAuth(server.createContext(uriContext+"/static/fonts/Liberation_Sans-Regular.ttf", new BytesFileHandler("edu/stanford/nlp/pipeline/demo/LiberationSans-Regular.ttf", "font/ttf")), basicAuth);
