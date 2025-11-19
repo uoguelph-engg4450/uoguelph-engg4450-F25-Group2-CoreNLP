@@ -1,0 +1,177 @@
+/* dark-mode.css — validated clean version */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e5e5e5;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .card,
+body.dark-mode .footer {
+  background-color: #1e1e1e !important;
+}
+
+
+/* Global body */
+body.dark-mode {
+  background-color: #121212; !important;
+  color: #e0e0e0;
+}
+
+/* Navbar */
+body.dark-mode .navbar-default {
+  background-color: #1f1f1f; !important;
+  background-image: none; !important;
+  border-color: #333;
+}
+
+body.dark-mode .btn-default {
+  background-image: none; !important;
+}
+
+body.dark-mode .nav > li > a {
+  color: #e0e0e0;
+}
+
+/* Form controls */
+body.dark-mode .form-control {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #555;
+}
+body.dark-mode .form-control:focus {
+  background-color: #2a2a2a;
+  border-color: #888;
+}
+
+/* Buttons */
+body.dark-mode .btn {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #555;
+}
+body.dark-mode .btn:hover {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+/* Labels and text */
+body.dark-mode .label,
+body.dark-mode label {
+  color: #aaa;
+}
+
+/* Footer */
+body.dark-mode .footer {
+  background-color: #1f1f1f;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+/* Chosen dropdown library */
+body.dark-mode .chosen-container-single .chosen-single,
+body.dark-mode .chosen-container-multi .chosen-choices {
+  background-color: #1e1e1e;
+  color: #eee;
+  border: 1px solid #555;
+}
+body.dark-mode .chosen-drop {
+  background-color: #1f1f1f;
+  color: #eee;
+  border-color: #444;
+}
+body.dark-mode .chosen-results li.highlighted {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+/* SVG / Brat visualization */
+body.dark-mode svg {
+  background-color: #1b1b1b;
+  border: 1px solid #333;
+}
+body.dark-mode text {
+  fill: #e0e0e0;
+}
+body.dark-mode .arcs path {
+  stroke: #ccc;
+  fill: none;
+}
+
+/* Tabs */
+body.dark-mode .nav-tabs > li > a {
+  background-color: #1e1e1e;
+  color: #ccc;
+  border: 1px solid #444;
+}
+body.dark-mode .nav-tabs > li.active > a {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-bottom-color: transparent;
+}
+
+/* Version number and logo */
+body.dark-mode #version-num {
+  color: #aaa;
+}
+
+/* Comment popup (Brat) */
+body.dark-mode #commentpopup {
+  background-color: #2a2a2a;
+  color: #fff;
+  box-shadow: 5px 5px 5px #000;
+  border-color: #444;
+}
+
+/* Placeholder text */
+body.dark-mode ::placeholder {
+  color: #888;
+}
+
+/* Loading spinner */
+body.dark-mode #loading img {
+  filter: brightness(0.8);
+}
+
+/* Panels and containers */
+body.dark-mode .panel,
+body.dark-mode .well {
+  background-color: #1d1d1d;
+  border-color: #333;
+  color: #ddd;
+}
+
+/* Table and list elements (if used) */
+body.dark-mode table,
+body.dark-mode th,
+body.dark-mode td {
+  background-color: #1e1e1e;
+  color: #ddd;
+  border-color: #333;
+}
+
+/* Links */
+body.dark-mode a {
+  color: #66aaff;
+}
+body.dark-mode a:hover {
+  color: #99ccff;
+}
+
+/* Highlighted / active selection */
+body.dark-mode ::selection {
+  background-color: #0055aa;
+  color: #fff;
+}
+
+/* Input groups */
+body.dark-mode .input-group-addon {
+  background-color: #2a2a2a;
+  color: #ccc;
+  border-color: #555;
+}
+
+/* Fix for Bootstrap nav-tab active border overlap */
+body.dark-mode .nav-tabs {
+  border-bottom: 1px solid #444;
+}

@@ -1,16 +1,23 @@
+/* ================================
+   CoreNLP BRAT UI – Modernized CSS
+   Includes updated Chosen.js styles
+   ================================ */
 
+/* Accent color */
 .red {
-  color:#990000
+  color: #a33;
 }
 
+/* Layout wrapper */
 #wrap {
   min-height: 100%;
   height: auto;
   margin: 0 auto -6ex;
-  padding: 0 0 6ex;
+  padding-bottom: 6ex;
   text-align: center;
 }
 
+/* Logo */
 #logo {
   display: block;
   margin-left: auto;
@@ -18,67 +25,205 @@
 }
 
 #logo-image {
-    height:20%
+  height: 40px;
 }
 
+/* Version label */
 #version-num {
-  font-size: 20px;
+  font-size: 18px;
+  color: #666;
 }
 
+/* Pattern areas */
 .pattern_tab {
-  margin: 1ex;
+  margin: 1rem 0;
 }
 
 .pattern_brat {
-  margin-top: 1ex;
+  margin-top: 1rem;
 }
 
-.label {
-  color: #777777;
-  font-size: small;
+/* Labels */
+.label,
+label {
+  color: #6c757d;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
+/* Footer */
 .footer {
-  bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 5ex;
-  padding-top: 1ex;
-  margin-top: 1ex;
-  background-color: #f5f5f5;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  background-color: #f8f9fa;
+  color: #555;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
 }
 
+/* Error notification */
 .corenlp_error {
-  margin-top: 2ex;
+  margin-top: 1.5rem;
 }
 
-/* Styling for parse graph */
+/* ================================
+   Parse Graph Styling
+   ================================ */
 .node rect {
   stroke: #333;
   fill: #fff;
+  rx: 4px;
+  ry: 4px;
 }
 
 .parse-RULE rect {
-  fill: #C0D9AF;
+  fill: #cfe9c4;
 }
 
 .parse-TERMINAL rect {
-  stroke: #333;
-  fill: #EEE8AA;
+  fill: #f4eeb2;
 }
 
 .node.highlighted {
-  stroke: #ffff00;
+  stroke: #f8e71c;
+  stroke-width: 2px;
 }
 
 .edgePath path {
-  stroke: #333;
-  fill: #333;
+  stroke: #444;
+  fill: none;
   stroke-width: 1.5px;
 }
 
 .parse-EDGE path {
-  stroke: DarkGray;
-  fill: DarkGray;
-  stroke-width: 1.5px;
+  stroke: #888;
+  fill: none;
+  stroke-width: 1.4px;
+}
+
+/* ================================
+   Bootstrap 5
+   ================================ */
+
+/* Base container */
+.chosen-container {
+  font-size: 0.95rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* SINGLE SELECT (Language) */
+.chosen-container-single .chosen-single {
+  height: 38px;
+  border-radius: 0.375rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #ced4da;
+  background: #fff;
+  color: #212529;
+  display: flex;
+  align-items: center;
+  box-shadow: none;
+}
+
+.chosen-container-single .chosen-single div b {
+  background-position-y: 8px !important;
+}
+
+.chosen-container-single .chosen-single:hover {
+  border-color: #a8b1bb;
+}
+
+/* Focus */
+.chosen-container-single .chosen-single:focus,
+.chosen-container-active .chosen-single {
+  border-color: #86b7fe !important;
+  box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25) !important;
+}
+
+/* DROPDOWN */
+.chosen-container .chosen-drop {
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  background: #fff;
+  padding: 0.35rem 0;
+  margin-top: 4px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+/* DROPDOWN ITEMS */
+.chosen-container .chosen-results li {
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.25rem;
+}
+.chosen-container .chosen-results li:hover {
+  background: #e9ecef;
+}
+.chosen-container .chosen-results li.highlighted {
+  background: #0d6efd;
+  color: #fff;
+}
+
+/* MULTI-SELECT INPUT (Annotations) */
+.chosen-container-multi .chosen-choices {
+  min-height: 38px;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px 6px;
+  gap: 4px;
+}
+
+.chosen-container-multi .chosen-choices:focus-within {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+
+/* TAG STYLING */
+.chosen-container-multi .chosen-choices li.search-choice {
+  background: #f1f3f5;
+  border: 1px solid #ced4da;
+  padding: 3px 28px 3px 8px;
+  border-radius: 14px;
+  color: #212529;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* TAG close button */
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+.chosen-container-multi .chosen-choices li.search-choice:hover .search-choice-close {
+  opacity: 1;
+}
+
+/* Search input inside tag box */
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  height: 28px;
+  border: none !important;
+  margin-top: 3px;
+  box-shadow: none !important;
+  font-size: 0.95rem;
+}
+
+/* Navbar */
+.navbar-brand img {
+  max-height: 40px;
+}
+
+#logo-image {
+  max-height: 40px;
+}
+
+.label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
 }
